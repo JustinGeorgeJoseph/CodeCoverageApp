@@ -5,16 +5,28 @@ pipeline {
         timeout(time: 1, unit: 'SECONDS')
     }
     stages {
+
+    stage('Clean project') {
+                steps {
+                    container('android') {
+                        sh """
+                        ./gradlew clean
+                        rm -rf CodeCoverageTest/build/
+                        """
+                    }
+                }
+            }
+
         stage('Example') {
             steps {
                 echo 'Hello World'
             }
 
             post {
-                            always {
-                                echo 'Hello World'
-                            }
-                        }
+                 always {
+                  echo 'Hello World'
+                 }
+            }
         }
     }
 }
