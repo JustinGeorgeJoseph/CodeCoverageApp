@@ -9,6 +9,12 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
+
+            post {
+                            always {
+                                echo 'Hello World'
+                            }
+                        }
         }
     }
 }
