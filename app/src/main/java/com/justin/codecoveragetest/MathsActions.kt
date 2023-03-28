@@ -12,4 +12,6 @@ class MathsActions {
     private fun multiplyTwoValues(a: Int, b: Int) = a * b
 
      fun divTwoValues(a: Int, b: Int) = a / b
+
+     fun divsTwoValues(a: Int, b: Int) = a / b
 }
