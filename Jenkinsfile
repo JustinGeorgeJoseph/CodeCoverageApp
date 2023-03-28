@@ -6,13 +6,13 @@ pipeline {
     }
     stages {
 
-    stage('Clean project') {
-                        stage('Clean Build') {
-                                dir("android") {
-
-                                    sh './gradlew clean'
-                                }
-                        }
+        stage('Clean Build') {
+                dir("android") {
+                    sh "pwd"
+                    sh 'ls -al'
+                    sh './gradlew clean'
+                }
+        }
 
         stage('Example') {
             steps {
