@@ -7,15 +7,12 @@ pipeline {
     stages {
 
     stage('Clean project') {
-                steps {
-                    container('android') {
-                        sh """
-                        ./gradlew clean
-                        rm -rf CodeCoverageTest/build/
-                        """
-                    }
-                }
-            }
+                        stage('Clean Build') {
+                                dir("android") {
+
+                                    sh './gradlew clean'
+                                }
+                        }
 
         stage('Example') {
             steps {
