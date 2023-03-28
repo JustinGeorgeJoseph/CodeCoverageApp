@@ -9,7 +9,7 @@ pipeline {
         stage('Clean Build') {
                 steps {
                     echo 'Running Tests'
-                    sh './gradlew clean'
+                    sh './gradlew clean -stacktrace'
                 }
         }
 
