@@ -7,9 +7,8 @@ pipeline {
     stages {
 
         stage('Clean Build') {
-                dir("android") {
-                    sh "pwd"
-                    sh 'ls -al'
+                steps {
+                    echo 'Running Tests'
                     sh './gradlew clean'
                 }
         }
