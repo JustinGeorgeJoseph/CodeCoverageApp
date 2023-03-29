@@ -25,7 +25,7 @@ pipeline {
              }
              post {
                  always {
-                     echo "**/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+                     jacoco execPattern: '**/jacoco/**.exec'
                  }
              }
          }
