@@ -25,7 +25,7 @@ pipeline {
              }
              post {
                  always {
-                     junit "**/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+                     jacoco "**/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
                  }
              }
          }
