@@ -8,7 +8,7 @@ pipeline {
                 }
         }
 
-/*         stage('Unit tests') {
+         stage('Unit tests') {
             steps {
                 sh './gradlew testDebugUnitTest'
             }
@@ -17,17 +17,23 @@ pipeline {
                     junit "**//* build/test-results *//** /* *//*.xml"
                 }
             }
-        } */
+        }
 
-          stage('Jacoco code coverage') {
+         /*  stage('Jacoco code coverage') {
              steps {
                  sh './gradlew jacocoTestReport'
              }
              post {
                  always {
-                     jacoco classPattern: '**//* intermediates/javac/debug/classes,**//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//* R.class, **//* R$*.class, **//* BuildConfig.*, **//* Manifest*.*, ** /* *//*Test*.*, android *//** /* *//*.*, ** /* *//*Activity.*'
+                     jacoco classPattern: '**//*  *//* intermediates/javac/debug/classes,**//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//* R.class, **//*  *//* R$*.class, **//*  *//* BuildConfig.*, **//*  *//* Manifest*.*, **  *//* *//*  *//*Test*.*, android *//*  *//**  *//* *//*  *//*.*, **  *//* *//*  *//*Activity.*'
                  }
              }
+         } */
+
+         stage('Jacoco code coverage test') {
+
+              jacoco classPattern: '**//*  *//* intermediates/javac/debug/classes,**//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//* R.class, **//*  *//* R$*.class, **//*  *//* BuildConfig.*, **//*  *//* Manifest*.*, **  *//* *//*  *//*Test*.*, android *//*  *//**  *//* *//*  *//*.*, **  *//* *//*  *//*Activity.*'
+
          }
 
     }
