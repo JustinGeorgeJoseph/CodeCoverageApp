@@ -25,7 +25,7 @@ pipeline {
              }
              post {
                  always {
-                     jacoco execPattern: '**/jacoco/**.exec'
+                     jacoco classPattern: '**/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', sourceExclusionPattern: '**/R.class, **/R$*.class, **/BuildConfig.*, **/Manifest*.*, **/*Test*.*, android/**/*.*, **/*Activity.*'
                  }
              }
          }
