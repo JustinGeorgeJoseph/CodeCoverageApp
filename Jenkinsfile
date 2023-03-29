@@ -1,6 +1,7 @@
 pipeline {
     agent any
     stages {
+
         stage('Clean Build') {
                 steps {
                     echo 'Running Tests'
@@ -29,6 +30,7 @@ pipeline {
                  }
              }
          }
+
 
     }
 }
