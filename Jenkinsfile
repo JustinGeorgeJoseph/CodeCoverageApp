@@ -27,7 +27,8 @@ pipeline {
              post {
                  always {
                     // jacoco classPattern: '**//*  *//*  *//*  *//* intermediates/javac/debug/classes,**//*  *//*  *//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//*  *//*  *//* R.class, **//*  *//*  *//*  *//* R$*.class, **//*  *//*  *//*  *//* BuildConfig.*, **//*  *//*  *//*  *//* Manifest*.*, **  *//*  *//* *//*  *//*  *//*  *//*Test*.*, android *//*  *//*  *//*  *//**  *//*  *//* *//*  *//*  *//*  *//*.*, **  *//*  *//* *//*  *//*  *//*  *//*Activity.*'
-                 jacoco classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec,**/jacoco/**.exec'
+                 //jacoco classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec,**/jacoco/**.exec'
+                 echo "justin test"
                  }
              }
          }
