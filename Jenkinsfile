@@ -19,22 +19,25 @@ pipeline {
             }
         }
 
-         /*  stage('Jacoco code coverage') {
+  /*        stage('Jacoco code coverage') {
              steps {
                  sh './gradlew jacocoTestReport'
              }
              post {
                  always {
-                     jacoco classPattern: '**//*  *//* intermediates/javac/debug/classes,**//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//* R.class, **//*  *//* R$*.class, **//*  *//* BuildConfig.*, **//*  *//* Manifest*.*, **  *//* *//*  *//*Test*.*, android *//*  *//**  *//* *//*  *//*.*, **  *//* *//*  *//*Activity.*'
+                     jacoco classPattern: '**//*  *//*  *//*  *//* intermediates/javac/debug/classes,**//*  *//*  *//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//*  *//*  *//* R.class, **//*  *//*  *//*  *//* R$*.class, **//*  *//*  *//*  *//* BuildConfig.*, **//*  *//*  *//*  *//* Manifest*.*, **  *//*  *//* *//*  *//*  *//*  *//*Test*.*, android *//*  *//*  *//*  *//**  *//*  *//* *//*  *//*  *//*  *//*.*, **  *//*  *//* *//*  *//*  *//*  *//*Activity.*'
                  }
              }
          } */
 
-         stage('Jacoco code coverage test') {
+         stage('Jacoco code coverage') {
+                      steps {
+                      jacoco classPattern: '**//*  *//*  *//*  *//* intermediates/javac/debug/classes,**//*  *//*  *//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//*  *//*  *//* R.class, **//*  *//*  *//*  *//* R$*.class, **//*  *//*  *//*  *//* BuildConfig.*, **//*  *//*  *//*  *//* Manifest*.*, **  *//*  *//* *//*  *//*  *//*  *//*Test*.*, android *//*  *//*  *//*  *//**  *//*  *//* *//*  *//*  *//*  *//*.*, **  *//*  *//* *//*  *//*  *//*  *//*Activity.*'
 
-              jacoco classPattern: '**//*  *//* intermediates/javac/debug/classes,**//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//* R.class, **//*  *//* R$*.class, **//*  *//* BuildConfig.*, **//*  *//* Manifest*.*, **  *//* *//*  *//*Test*.*, android *//*  *//**  *//* *//*  *//*.*, **  *//* *//*  *//*Activity.*'
+                      }
 
-         }
+                  }
+
 
     }
 }
