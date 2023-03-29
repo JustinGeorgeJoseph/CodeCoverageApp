@@ -19,7 +19,7 @@ pipeline {
             }
         } */
 
-/*          stage('Jacoco code coverage') {
+          stage('Jacoco code coverage') {
              steps {
                  sh './gradlew jacocoTestReport'
              }
@@ -28,7 +28,7 @@ pipeline {
                      jacoco classPattern: '**//* intermediates/javac/debug/classes,**//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//* R.class, **//* R$*.class, **//* BuildConfig.*, **//* Manifest*.*, ** /* *//*Test*.*, android *//** /* *//*.*, ** /* *//*Activity.*'
                  }
              }
-         } */
+         }
 
     }
 }
