@@ -20,8 +20,10 @@ pipeline {
             }
         }
 
-
-
-
+         stage('Jacoco code coverage') {
+                 steps {
+                  jacoco classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec,**/jacoco/**.exec'
+                 }
+         }
     }
 }
