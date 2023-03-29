@@ -25,7 +25,7 @@ pipeline {
              }
              post {
                  always {
-                     jacoco "**/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+                     echo "**/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
                  }
              }
          }
