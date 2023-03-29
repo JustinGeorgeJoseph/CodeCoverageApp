@@ -1,7 +1,8 @@
 package com.justin.mylibrary
 
-class StringUtils {
+class StringBufferUtils {
 
-    fun joinTwoString(a: String, b: String) = a+b
-    fun concatTwoString(a: String, b: String) = a + b
+    fun joinTwoStringBuffer(a: String, b: String) = a + b
+
+    fun concatTwoStringBuffer(a: String, b: String) = a + b
 }
