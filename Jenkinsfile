@@ -15,7 +15,7 @@ pipeline {
             }
             post {
                 always {
-                    junit "**//* build/test-results *//** /* *//*.xml"
+                     junit "**/build/test-results/**/*.xml"
                 }
             }
         }
@@ -26,9 +26,9 @@ pipeline {
              }
              post {
                  always {
-                    // jacoco classPattern: '**//*  *//*  *//*  *//* intermediates/javac/debug/classes,**//*  *//*  *//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//*  *//*  *//* R.class, **//*  *//*  *//*  *//* R$*.class, **//*  *//*  *//*  *//* BuildConfig.*, **//*  *//*  *//*  *//* Manifest*.*, **  *//*  *//* *//*  *//*  *//*  *//*Test*.*, android *//*  *//*  *//*  *//**  *//*  *//* *//*  *//*  *//*  *//*.*, **  *//*  *//* *//*  *//*  *//*  *//*Activity.*'
+                     jacoco classPattern: '**//*  *//*  *//*  *//* intermediates/javac/debug/classes,**//*  *//*  *//*  *//* tmp/kotlin-classes/debug', sourceExclusionPattern: '**//*  *//*  *//*  *//* R.class, **//*  *//*  *//*  *//* R$*.class, **//*  *//*  *//*  *//* BuildConfig.*, **//*  *//*  *//*  *//* Manifest*.*, **  *//*  *//* *//*  *//*  *//*  *//*Test*.*, android *//*  *//*  *//*  *//**  *//*  *//* *//*  *//*  *//*  *//*.*, **  *//*  *//* *//*  *//*  *//*  *//*Activity.*'
                  //jacoco classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec,**/jacoco/**.exec'
-                 echo "justin test"
+
                  }
              }
          }
