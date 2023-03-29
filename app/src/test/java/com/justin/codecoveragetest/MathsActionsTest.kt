@@ -27,4 +27,10 @@ class MathsActionsTest {
         val result = MathsActions().divTwoValues(5,5)
         assert(result == 1)
     }
+
+    @Test
+    fun divsText(){
+        val result = MathsActions().divsTwoValues(5,5)
+        assert(result == 1)
+    }
 }
