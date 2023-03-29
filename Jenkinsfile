@@ -7,5 +7,28 @@ pipeline {
                     sh './gradlew clean -stacktrace'
                 }
         }
+
+        stage('Unit tests') {
+            steps {
+                sh './gradlew testDebugUnitTest'
+            }
+            post {
+                always {
+                    junit "**/build/test-results/**/*.xml"
+                }
+            }
+        }
+
+         stage('Jacoco code coverage') {
+             steps {
+                 sh './gradlew jacocoTestReport'
+             }
+             post {
+                 always {
+                     junit "**/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+                 }
+             }
+         }
+
     }
 }
