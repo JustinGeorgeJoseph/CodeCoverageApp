@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply from: '../jacoco.gradle'
+
 android {
     namespace 'com.justin.feature_branch'
     compileSdk 33
