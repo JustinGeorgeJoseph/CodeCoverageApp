@@ -6,7 +6,7 @@ class FeatureBranchTest {
 
     @Test
     fun testBranch(){
-        val actualData = FeatureBranch().printFeatureBranchValue()
+        val actualData = FeatureBranch().featureBranchValue("FeatureBranch"," changes")
         assert(actualData.equals("FeatureBranch changes") )
     }
 }
