@@ -14,4 +14,7 @@ class MathsActions {
      fun divTwoValues(a: Int, b: Int) = a / b
 
      fun divsTwoValues(a: Int, b: Int) = a / b
+
+    fun divsTwoValues2(a: Int, b: Int) = a / b
+
 }
