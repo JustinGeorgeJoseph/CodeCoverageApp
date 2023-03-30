@@ -23,6 +23,7 @@ pipeline {
          stage('Jacoco code coverage') {
             steps {
                  sh './gradlew jacocoTestReport'
+                 sh './gradlew check diffCoverage'
              }
              post {
                 always {
