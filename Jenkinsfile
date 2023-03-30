@@ -26,7 +26,7 @@ pipeline {
              }
              post {
                 always {
-                    jacoco skipCopyOfSrcFiles: true classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec,**/jacoco/**.exec'
+                    jacoco skipCopyOfSrcFiles: true, classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec,**/jacoco/**.exec'
                 }
              }
          }
