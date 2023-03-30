@@ -23,4 +23,12 @@ class MathsActions {
     } else{
         false
     }
+
+    fun checkValueIsGreater(a: Int) = when(a){
+        1 -> 1
+        2 -> 2
+        3 -> 3
+        4 -> 4
+        else -> -1
+    }
 }
