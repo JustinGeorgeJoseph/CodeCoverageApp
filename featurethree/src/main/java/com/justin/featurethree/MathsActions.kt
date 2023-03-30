@@ -18,10 +18,9 @@ class MathsActions {
      fun divsTwoValues(a: Int, b: Int) = a / b
 
     fun checkValueIsGreater(a: Int, b: Int) = if (a<b){
-        Log.d("TAG_JUSTIN","VALUES")
+        print("TAG_JUSTIN - VALUES")
         true
     } else{
-        Log.d("TAG_JUSTIN","VALUES")
         false
     }
 }
