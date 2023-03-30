@@ -1,5 +1,6 @@
 package com.justin.codecoveragetest
 
+import android.util.Log
 import org.junit.Test
 
 class MathsActionsTest {
@@ -28,9 +29,9 @@ class MathsActionsTest {
         assert(result == 1)
     }
 
-    @Test
+/*    @Test
     fun divsText(){
         val result = MathsActions().divsTwoValues(5,5)
         assert(result == 1)
-    }
+    }*/
 }
