@@ -26,8 +26,8 @@ pipeline {
              }
              post {
                 always {
-                    //jacoco classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec,**/jacoco/**.exec'
-                    jacoco buildOverBuild: true, deltaBranchCoverage: '100', deltaClassCoverage: '70', deltaComplexityCoverage: '70', deltaLineCoverage: '70', deltaMethodCoverage: '70',  classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec, **/jacoco/**.exec,**/outputs/code_coverage/debugAndroidTest/connected/**/*.ec', sourceExclusionPattern: '**/R.class, **/R$*.class, **/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*', sourceInclusionPattern: '**/*.java,**/*.kt,**/*.kts'
+                    jacoco classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec,**/jacoco/**.exec'
+                    //jacoco buildOverBuild: true, deltaBranchCoverage: '100', deltaClassCoverage: '70', deltaComplexityCoverage: '70', deltaLineCoverage: '70', deltaMethodCoverage: '70',  classPattern: '**/classes, **/intermediates/javac/debug/classes,**/tmp/kotlin-classes/debug', execPattern: '**/**.exec, **/jacoco/**.exec,**/outputs/code_coverage/debugAndroidTest/connected/**/*.ec', sourceExclusionPattern: '**/R.class, **/R$*.class, **/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*', sourceInclusionPattern: '**/*.java,**/*.kt,**/*.kts'
                 }
              }
          }
