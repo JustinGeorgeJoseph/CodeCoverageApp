@@ -26,6 +26,12 @@ pipeline {
              }
              post {
                 always {
+
+recordCoverage(tools: [[parser: 'JACOCO']],
+        id: 'jacoco', name: 'JaCoCo Coverage',
+        sourceCodeRetention: 'EVERY_BUILD')
+
+
                    jacoco execPattern: '**/**.exec,**/jacoco/**.exec',
                    sourceExclusionPattern: '**/R.class, **/R$*.class, **/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*',
                    exclusionPattern: '**/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*',
