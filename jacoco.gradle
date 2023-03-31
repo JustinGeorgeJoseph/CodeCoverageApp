@@ -1,4 +1,5 @@
 apply plugin: 'jacoco'
+apply plugin: "org.sonarqube"
 
 jacoco{
     toolVersion = "0.8.8"
@@ -29,4 +30,24 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
     executionData.setFrom(fileTree(dir: project.buildDir, includes: [
             'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/**/*.ec'
     ]))
+}
+
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "CodeCoverageCheck"
+        property "sonar.projectKey", "CodeCoverageCheck"
+        property "sonar.tests", ["src/test/java"]
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.jacoco.reportPath", "**/jacoco/*.exec"
+        property "sonar.test.inclusions", "**/*Test*/**"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.sources", "src/main/java"
+        property "sonar.exclusions", '**/*Test*/**,' +
+                '*.json,' +
+                '**/*test*/**,' +
+                '**/.gradle/**,' +
+                '**/R.class,' +
+                '**/R$*.class'
+    }
 }
