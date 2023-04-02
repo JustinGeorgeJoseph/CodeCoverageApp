@@ -42,7 +42,6 @@ pipeline {
                     exclusionPattern: '**/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*',
                     classPattern: '**/classes, **/intermediates/javac/debug/classes, **/tmp/kotlin-classes/debug'
                }
-             }
          }
 
 //          stage('code coverage') {
