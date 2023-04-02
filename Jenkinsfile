@@ -35,12 +35,8 @@ pipeline {
             }
         }
 
-         stage('code coverage') {
+         stage('code coverage - new') {
             steps {
-                sh(script: "./gradlew jacocoTestReport", label: "Code coverage analysis")
-             }
-             post {
-                always {
                     jacoco execPattern: '**/**.exec, **/jacoco/**.exec',
                     sourceExclusionPattern: '**/R.class, **/R$*.class, **/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*',
                     exclusionPattern: '**/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*',
@@ -48,5 +44,19 @@ pipeline {
                }
              }
          }
+
+//          stage('code coverage') {
+//             steps {
+//                 sh(script: "./gradlew jacocoTestReport", label: "Code coverage analysis")
+//              }
+//              post {
+//                 always {
+//                     jacoco execPattern: '**/**.exec, **/jacoco/**.exec',
+//                     sourceExclusionPattern: '**/R.class, **/R$*.class, **/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*',
+//                     exclusionPattern: '**/BuildConfig.*, **/Manifest*.* , **/*Test*.*, android/**/*.*, **/*Activity.*',
+//                     classPattern: '**/classes, **/intermediates/javac/debug/classes, **/tmp/kotlin-classes/debug'
+//                }
+//              }
+//          }
     }
 }
