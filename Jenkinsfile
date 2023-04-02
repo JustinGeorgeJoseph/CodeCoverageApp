@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-         stage('Jacoco code coverage') {
+         stage('Jacoco code coverage sssssssss') {
             steps {
                 sh(script: "./gradlew jacocoTestReport", label: "Code coverage analysis")
              }
