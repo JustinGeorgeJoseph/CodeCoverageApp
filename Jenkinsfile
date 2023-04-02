@@ -1,6 +1,24 @@
 pipeline {
     agent any
+
+    options {
+        skipDefaultCheckout()
+    }
     stages {
+         stage('Clean repo') {
+                 steps {
+                     cleanWs()
+                 }
+         }
+
+        stage('Prepare') {
+            steps {
+                checkout scm: [
+                    $class: 'GitSCM',
+                    branches: scm.branches
+                ]
+            }
+        }
 
         stage('Clean Build') {
                 steps {
