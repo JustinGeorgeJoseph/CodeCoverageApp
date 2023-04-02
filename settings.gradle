@@ -23,4 +23,3 @@ dependencyResolutionManagement {
 rootProject.name = "CodeCoverageTest"
 include ':app'
 include ':mylibrary'
-include ':feature-branch'
