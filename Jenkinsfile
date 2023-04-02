@@ -13,10 +13,7 @@ pipeline {
 
         stage('Prepare') {
             steps {
-                checkout scm: [
-                    $class: 'GitSCM',
-                    branches: scm.branches
-                ]
+                checkout scm
             }
         }
 
