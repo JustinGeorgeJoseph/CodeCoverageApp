@@ -39,7 +39,7 @@ pipeline {
             steps {
                     jacoco execPattern: '**/**.exec, **/jacoco/**.exec',
                     sourceInclusionPattern:'**/*Two.*',
-                    inclusionPattern:'**/sampletwo/*',
+                    exclusionPattern:'**/app/*',
                     classPattern: '**/classes, **/intermediates/javac/debug/classes, **/tmp/kotlin-classes/debug'
                }
          }
