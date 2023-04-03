@@ -38,7 +38,7 @@ pipeline {
          stage('code coverage - new') {
             steps {
                     jacoco execPattern: '**/**.exec, **/jacoco/**.exec',
-                    sourceInclusionPattern:'**/samplethree'
+                    sourceInclusionPattern:'**/samplethree',
                     inclusionPattern:'**/samplethree',
                     classPattern: '**/classes, **/intermediates/javac/debug/classes, **/tmp/kotlin-classes/debug'
                }
