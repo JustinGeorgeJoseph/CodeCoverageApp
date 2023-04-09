@@ -28,5 +28,11 @@ pipeline {
                    classPattern: '**/classes, **/intermediates/javac/debug/classes, **/tmp/kotlin-classes/debug'
              }
          }
+
+          stage('Sonarqube analysis') {
+             steps {
+                 sh './gradlew sonar'
+             }
+         }
     }
 }
