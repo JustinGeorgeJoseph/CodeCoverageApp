@@ -31,7 +31,7 @@ pipeline {
 
           stage('Sonarqube analysis') {
              steps {
-                 sh './gradlew sonar -Dsonar.projectKey=CodeCoverageCheck -Dsonar.login=sqp_f07d9cb81f31b4238179ef8576dfed332bcbc8af'
+                 sh './gradlew sonar -Dsonar.projectKey=CodeCoverageCheck -Dsonar.login=sqp_f07d9cb81f31b4238179ef8576dfed332bcbc8af --stacktrace'
              }
          }
     }
