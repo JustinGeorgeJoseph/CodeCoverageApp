@@ -33,5 +33,11 @@ pipeline {
                 }
              }
          }
+
+         stage('Sonarqube analysis') {
+            steps {
+                sh './gradlew sonar'
+            }
+        }
     }
 }
