@@ -38,7 +38,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
         property "sonar.projectName", "CodeCoverageTest"
         property "sonar.projectKey", "CodeCoverageCheck"
         property "sonar.tests", ["src/test/java"]
-        property "sonar.host.url", "http://136.226.252.102:9000" // change to your SonarQube server URL
+        property "sonar.host.url", "http://103.72.177.179:9000" // change to your SonarQube server URL
         property "sonar.login", "sqp_f07d9cb81f31b4238179ef8576dfed332bcbc8af" // replace with your SonarQube token
         property "sonar.java.coveragePlugin", "jacoco"
         property "sonar.junit.reportPaths", "build/test-results/testDebugUnitTest"
