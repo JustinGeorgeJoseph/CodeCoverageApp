@@ -1,4 +1,3 @@
-[Important]
 # Release notes - Version 4.77.0
 
 ### Task
