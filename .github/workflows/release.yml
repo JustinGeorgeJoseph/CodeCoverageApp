@@ -18,4 +18,4 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git tag -a v1.0.5 -m "Release v1.0.5"
-          git push --tags
+          git push --tags --verbose
