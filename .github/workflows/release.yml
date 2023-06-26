@@ -15,7 +15,11 @@ jobs:
       - name: Read release info from files
         id: release-info
         run: |
-          echo "The value of tag is awk : $(awk -F'\"' '/versionName/{print $2}' app/build.gradle)"
           echo "The value of tag is grep : $(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)"
+          echo "::set-output name=tag::$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)"
+          echo "::set-output name=notes::$(cat changelog.md)"
+          echo "The change log : $(cat changelog.md)"
+
+
 
 
