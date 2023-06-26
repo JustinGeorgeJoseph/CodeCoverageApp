@@ -20,7 +20,7 @@ jobs:
       - name: Print values
         id: print-values
         run: |
-          echo "The tag for new ====> : ${env.tag }"
+          echo "The tag for new ====> : ${steps.release-info.outpts.tag }"
 
 
 
