@@ -12,9 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: finding file
-        run: find -iname build.gradle
       - name: Read release info from files
         id: release-info
         run: |
-          echo "The value of tag is: $(awk -F'\"' '/versionName/{print $2}' app/build.gradle)"
+          echo "The value of tag is awk : $(awk -F'\"' '/versionName/{print $2}' app/build.gradle)"
+          echo "The value of tag is grep : $(grep -oP '(?<=versionName ").*(?=")' app/buil.gradle)"
+
+
