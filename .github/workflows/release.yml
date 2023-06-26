@@ -13,7 +13,8 @@ jobs:
       - name: Read release info from file
         id: release-info
         run: |
-          echo "::set-output name=tag::$(awk -F'"' '/versionName/{print $2}' ../../app/build.gradle)"
+          echo "::set-output name=tag::$(awk -F'\"' '/versionName/{print $2}' app/build.gradle)"
+
 
       - name: Checkout code
         uses: actions/checkout@v2
