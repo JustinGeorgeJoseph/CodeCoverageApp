@@ -29,7 +29,7 @@ jobs:
       - name: Read changelog.md
         id: read-changelog
         run: |
-          changelog=$(awk changelog.md)
+          changelog=$(cat changelog.md)
           echo "::set-output name=changelog::$changelog"
 
       - name: Create GitHub Release
@@ -39,6 +39,6 @@ jobs:
         with:
           tag_name: ${{ steps.create-tag.outputs.tag }}
           release_name: Release ${{ steps.create-tag.outputs.tag }}
-          body: ${{ steps.read-changelog.outputs.changelog }}
+          body: ${{ cat changelog.md }}
 
 
