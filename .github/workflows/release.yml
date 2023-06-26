@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List directory contents
+      - name: List directory contentss
         run: ls -R $HOME
       - name: Read release info from files
         id: release-info
