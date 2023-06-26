@@ -39,6 +39,6 @@ jobs:
         with:
           tag_name: ${{ steps.create-tag.outputs.tag }}
           release_name: Release ${{ steps.create-tag.outputs.tag }}
-          body: ${{ cat changelog.md }}
+          body: ${{ steps.create-tag.outputs.changelog }}
 
 
