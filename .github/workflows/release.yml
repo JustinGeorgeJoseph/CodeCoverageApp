@@ -14,4 +14,4 @@ jobs:
         id: release-info
         run: |
           echo "The value of tag is: $(awk -F'\"' '/versionName/{print $2}' app/build.gradle)"
-          echo pwd
+          echo "$pwd"
