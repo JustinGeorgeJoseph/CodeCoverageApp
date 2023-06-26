@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List directory contentss
-        run: ls -R $HOME/work/CodeCoverageApp
       - name: finding file
         run: find -iname build.gradle
       - name: Read release info from files
