@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Read release info from file
+        id: release-info
+        run: |
+          echo "::set-output name=tag::$(grep -oP '(?<=versionName ").*(?=")' app/buil.gradle)"
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -17,7 +22,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git tag -a v1.0.7 -m "Release v1.0.7"
+          git tag -a ${{ steps.release-info.outputs.tag }} -m "Release v${{ steps.release-info.outputs.tag }}"
           git push --tags --verbose
           
       - name: Create GitHub Release
@@ -25,6 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v1.0.7
-          release_name: Release v1.0.7
+          tag_name: ${{ steps.release-info.outputs.tag }}
+          release_name: ${{ steps.release-info.outputs.tag }}
           body: Release notes
