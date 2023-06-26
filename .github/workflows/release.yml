@@ -34,13 +34,27 @@ jobs:
           readme_contents=$(cat changelog.md)
           echo "===> $(cat changelog.md)"
 
+      #- name: Create GitHub Release
+       # uses: actions/create-release@v1
+        #env:
+         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #with:
+         # tag_name: ${{ steps.create-tag.outputs.tag }}
+          #release_name: Release ${{ steps.create-tag.outputs.tag }}
+          #body: ${{ steps.read-changelog.outputs.changelog }}
+          
       - name: Create GitHub Release
-        uses: actions/create-release@v1
+        run: |
+          tag=${{ steps.create-tag.outputs.tag }}
+          release_body=$(cat changelog.md)
+          echo "::set-output name=release_body::$release_body"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        id: create-release
         with:
           tag_name: ${{ steps.create-tag.outputs.tag }}
           release_name: Release ${{ steps.create-tag.outputs.tag }}
-          body: ${{ steps.read-changelog.outputs.changelog }}
+          body: ${{ steps.create-release.outputs.release_body }}
 
 
