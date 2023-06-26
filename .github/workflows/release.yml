@@ -31,8 +31,6 @@ jobs:
         run: |
           changelog=$(cat changelog.md)
           echo "::set-output name=changelog::$changelog"|
-          readme_contents=$(cat changelog.md)
-          echo "===> $(cat changelog.md)"
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
