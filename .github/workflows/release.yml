@@ -18,7 +18,10 @@ jobs:
           echo "The value of tag is grep : $(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)"
           echo "::set-output name=tag::$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)"
           echo "::set-output name=notes::$(cat changelog.md)"
+          echo "changelog=$(cat changelog.md)" >> $CHANGE_LOG
           echo "The change log : $(cat changelog.md)"
+          change_log=$(cat $CHANGE_LOG)
+          echo "The change log for new ====> : $change_log"
 
 
 
