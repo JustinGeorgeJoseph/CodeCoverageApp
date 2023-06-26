@@ -12,11 +12,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Create git tag
+      - name: Get git tag
         id: create-tag
         run: |
           echo "The value of tag is grep : $(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)"
           echo "tag=v$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)" >> $GITHUB_OUTPUT
+          
       - name: Create Git Tag
         run: |
           tag=${{steps.create-tag.outputs.tag}}
@@ -25,6 +26,13 @@ jobs:
           git tag -a ${tag} -m "Release ${tag}"
           git push origin $tag --verbose
 
-
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.create-tag.outputs.tag }}
+          release_name: Release ${{ steps.create-tag.outputs.tag }}
+          body: ${cat changelog.md}
 
 
