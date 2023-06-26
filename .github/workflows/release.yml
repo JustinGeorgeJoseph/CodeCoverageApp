@@ -14,15 +14,3 @@ jobs:
         id: release-info
         run: |
           echo "The value of tag is: $(awk -F'\"' '/versionName/{print $2}' ../../app/build.gradle)"
-          echo "::set-output name=tag::$(awk -F'\"' '/versionName/{print $2}' ../../app/build.gradle)"
-
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Create Git Tag
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git tag -a v${{ steps.release-info.outputs.tag }} -m "Release -v${{ steps.release-info.outputs.tag }}"
-          git push --tags --verbose
