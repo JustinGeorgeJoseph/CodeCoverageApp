@@ -17,4 +17,4 @@ jobs:
       - name: Read release info from files
         id: release-info
         run: |
-          echo "The value of tag is: $(awk -F'\"' '/versionName/{print $2}' $HOME/work/CodeCoverageApp/app/build.gradle)"
+          echo "The value of tag is: $(awk -F'\"' '/versionName/{print $2}' app/build.gradle)"
