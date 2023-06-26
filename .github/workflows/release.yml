@@ -16,13 +16,13 @@ jobs:
         id: release-info
         run: |
           echo "The value of tag is grep : $(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)"
-          echo "tag=$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)" >> $GITHUB_OUTPUT
-          echo "changelog=$(awk changelog.md)" >> $GITHUB_OUTPUT
+          echo "tag=$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)" >> $GITHUB_ENV
+          echo "changelog=$(cat changelog.md)" >> $GITHUB_ENV
       - name: Print values
         id: print-values
         run: |
-          echo "The tag for new ====> : ${{ steps.release-info.outputs.tag }}"
-          echo "The change log ====> : ${{ steps.release-info.outputs.changelog }}"
+          echo "The tag for new ====> : ${env.tag }"
+          echo "The change log ====> : ${ env.changelog }"
 
 
 
