@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
       - name: Get git tag
         id: create-tag
         run: |
@@ -32,7 +32,7 @@ jobs:
           changelog=$(cat changelog.md)
           echo "::set-output name=changelog::$changelog"|
           readme_contents=$(cat changelog.md)
-          echo "===> $readme_contents"
+          echo "===> $(cat changelog.md)"
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
