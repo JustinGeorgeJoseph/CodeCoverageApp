@@ -29,7 +29,7 @@ jobs:
       - name: Read changelog.txt
         id: read-changelog
         run: |
-          changelog=$(cat changelog.md)
+          changelog=$(cat changelog.txt)
           echo "::set-output name=changelog::$changelog"
 
       - name: Create GitHub Release
