@@ -17,10 +17,13 @@ jobs:
         run: |
           echo "The value of tag is grep : $(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)"
           echo "tag=$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)" >> $GITHUB_OUTPUT
-      - name: Print values
-        id: print-values
+      - name: Create Git Tag
         run: |
-          echo "The tag for new ====> : ${{steps.release-info.outputs.tag}}"
+          tag=$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git tag -a v${tag} -m "Release v${tag}"
+          git push --tags --verbose
 
 
 
