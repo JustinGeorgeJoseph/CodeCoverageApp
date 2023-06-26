@@ -10,11 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check build.gradle file
-        run: |
-          ls -R
       - name: Read release info from files
         id: release-info
         run: |
-          echo "The value of tag is: $(awk -F'\"' '/versionName/{print $2}' app/build.gradle)"
-          echo "$pwd"
+          echo "The value of tag is: $(awk -F'\"' '/versionName/{print $2}' CodeCoverageTest/app/build.gradle)"
