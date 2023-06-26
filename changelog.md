@@ -1,4 +1,4 @@
-# Release notes - Version 4.77.0
+# Release notes - Version 1.0.13
 
 ### Task
 [MAT-640](https://swapcard.atlassian.net/browse/MAT-640) Migrate to Jetpack compose \(phase 2\)
