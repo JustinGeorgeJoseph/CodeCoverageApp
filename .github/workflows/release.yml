@@ -29,7 +29,8 @@ jobs:
       - name: Read changelog.md
         id: read-changelog
         run: |
-          echo "changelog=$(cat changelog.md)" >> $GITHUB_ENV
+          changelog=$(cat changelog.md)
+          echo "::set-output name=changelog::$changelog"
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
