@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check build.gradle file
+        run: |
+          ls -R
       - name: Read release info from files
         id: release-info
         run: |
