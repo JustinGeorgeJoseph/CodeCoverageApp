@@ -25,6 +25,11 @@ jobs:
           git config --local user.name "GitHub Actions"
           git tag -a ${tag} -m "Release ${tag}"
           git push origin $tag --verbose
+          
+      - name: Read changelog.md
+        id: read-changelog
+        run: |
+          echo "changelog=$(cat changelog.md)" >> $GITHUB_ENV
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
@@ -33,7 +38,6 @@ jobs:
         with:
           tag_name: ${{ steps.create-tag.outputs.tag }}
           release_name: Release ${{ steps.create-tag.outputs.tag }}
-          body: |
-            ${{ file("changelog.md") }}
+          body: ${{ env.changelog }}
 
 
