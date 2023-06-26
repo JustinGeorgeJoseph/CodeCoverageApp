@@ -19,12 +19,3 @@ jobs:
           git config --local user.name "GitHub Actions"
           git tag -a v1.0.5 -m "Release v1.0.5"
           git push --tags
-
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v1.0.5
-          release_name: Release v1.0.5
-          body: Release notes
