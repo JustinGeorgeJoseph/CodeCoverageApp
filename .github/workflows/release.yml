@@ -19,11 +19,11 @@ jobs:
           echo "tag=$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)" >> $GITHUB_OUTPUT
       - name: Create Git Tag
         run: |
-          tag=$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)
+          tag=v$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git tag -a v${tag} -m "Release v${tag}"
-          git push --tags --verbose
+          git push origin tag --verbose
 
 
 
