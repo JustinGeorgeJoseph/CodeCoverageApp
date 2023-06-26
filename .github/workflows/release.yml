@@ -16,6 +16,6 @@ jobs:
         id: release-info
         run: |
           echo "The value of tag is awk : $(awk -F'\"' '/versionName/{print $2}' app/build.gradle)"
-          echo "The value of tag is grep : $(grep -oP '(?<=versionName ").*(?=")' app/buil.gradle)"
+          echo "The value of tag is grep : $(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)"
 
 
