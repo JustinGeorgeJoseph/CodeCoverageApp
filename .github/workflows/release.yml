@@ -17,7 +17,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git tag -a v1.0.5 -m "Release v1.0.5"
+          git tag -a v1.0.7 -m "Release v1.0.7"
           git push --tags --verbose
           
       - name: Create GitHub Release
@@ -25,6 +25,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v1.0.0
-          release_name: Release v1.0.0
+          tag_name: v1.0.7
+          release_name: Release v1.0.7
           body: Release notes
