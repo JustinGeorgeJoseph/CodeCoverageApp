@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Read release info from file
+      - name: Read release info from files
         id: release-info
         run: |
           echo "::set-output name=tag::$(awk -F'\"' '/versionName/{print $2}' ../..app/build.gradle)"
