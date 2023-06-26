@@ -20,7 +20,7 @@ jobs:
           echo "::set-output name=notes::$(cat changelog.md)"
           echo "changelog=$(cat changelog.md)" >> $GITHUB_OUTPUT
           echo "The change log : $(cat changelog.md)"
-          echo "The change log for new ====> : $change_log"
+          echo "The change log for new ====> : ${{ steps.release-info.outputs.changelog }}"
 
 
 
