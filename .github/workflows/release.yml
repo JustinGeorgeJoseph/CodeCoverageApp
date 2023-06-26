@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: List directory contents
-        run: ls $HOME
+        run: ls -R $HOME
       - name: Read release info from files
         id: release-info
         run: |
