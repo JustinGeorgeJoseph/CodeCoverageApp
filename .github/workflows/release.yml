@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: List directory contents
+        run: ls $HOME
       - name: Read release info from files
         id: release-info
         run: |
