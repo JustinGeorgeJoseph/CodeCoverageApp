@@ -1,4 +1,4 @@
-# Release notes - Version 2.0.0
+# Release notes - Version 2.1.0
 
 
 ### Task
