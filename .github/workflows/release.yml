@@ -39,7 +39,7 @@ jobs:
         run: |
           tag=${{steps.create-tag.outputs.tag}}
           tag_exists=${{steps.create-tag.outputs.tag_exists}}
-          echo "Tag ${tag} - exists == ${tag_exists}"
+          echo "Tag ${tag} - exists == steps.create-tag.outputs.tag_exists"
           
 
 
