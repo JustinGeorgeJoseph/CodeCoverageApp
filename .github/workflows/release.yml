@@ -21,7 +21,7 @@ jobs:
       - name: Create tag from versonName
         id: create-tag
         run: |
-          versionName = $(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)
+          versionName=$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)
           echo "tag=v${versionName}" >> $GITHUB_OUTPUT
           
       - name: Check Tag Existence
