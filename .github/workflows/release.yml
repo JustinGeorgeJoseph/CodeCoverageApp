@@ -41,7 +41,7 @@ jobs:
           tag_name: ${{ steps.create-tag.outputs.tag }}
           release_name: Release ${{ steps.create-tag.outputs.tag }}
           body: |
-            ${{ steps.read-changelog.outputs.changelog }}
+            ${{ steps.read-changelog.outputs.changelog | replace('%', '\n') }}
           #body: ${{ steps.read-changelog.outputs.changelog }}
           
 
