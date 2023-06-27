@@ -48,6 +48,7 @@ jobs:
           bodyFile: changelog.md
           token: ${{ secrets.GITHUB_TOKEN }}
           skipIfReleaseExists: true
+          draft: true
           
 
 
