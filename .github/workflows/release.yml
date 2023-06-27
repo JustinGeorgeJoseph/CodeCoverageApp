@@ -28,8 +28,10 @@ jobs:
           RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/git/refs/tags/${TAG_NAME}")
           if [[ "$RESPONSE" == "200" ]]; then
             echo "::set-output name=tag_exists::true"
+            echo "Tag ${TAG_NAME} - exists  yes"
           else
             echo "::set-output name=tag_exists::false"
+            echo "Tag ${TAG_NAME} - exists  false"
           fi
           
           
