@@ -18,4 +18,4 @@ jobs:
           
       - name: Print files list
         run: |
-          echo "The value of tag is grep : $(ls -R -maxdepth 5)"
+          echo "The value of tag is grep : $(tree -L 4)"
