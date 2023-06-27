@@ -26,9 +26,9 @@ jobs:
           TAG_NAME=${{steps.create-tag.outputs.tag}}
           RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/git/refs/tags/${TAG_NAME}")
           if [[ "$RESPONSE" == "200" ]]; then
-            echo "::set-output name=tag_exists::true"
+            echo "tag_exists=true" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=tag_exists::false"
+            echo "tag_exists=false" >> $GITHUB_OUTPUT
           fi
           
       - name: Create Git Tag
