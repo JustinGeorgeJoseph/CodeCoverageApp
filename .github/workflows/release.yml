@@ -20,7 +20,6 @@ jobs:
         run: |
           echo "tag=v$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)" >> $GITHUB_OUTPUT
           
-          
       - name: Check Tag Existence
         id: check_tag
         run: |
@@ -28,18 +27,27 @@ jobs:
           RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/git/refs/tags/${TAG_NAME}")
           if [[ "$RESPONSE" == "200" ]]; then
             echo "::set-output name=tag_exists::true"
-            echo "Tag ${TAG_NAME} - exists  yes"
           else
             echo "::set-output name=tag_exists::false"
-            echo "Tag ${TAG_NAME} - exists  false"
           fi
           
-          
-      - name: Print tag existance
+      - name: Create Git Tag
         if: steps.check_tag.outputs.tag_exists == 'false'
         run: |
           tag=${{steps.create-tag.outputs.tag}}
-          echo "Tag ${tag} - existsssssss"
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git tag -a ${tag} -m "Release ${tag}"
+          git push origin $tag --verbose
+
+      - name: Create GitHub Release
+        if: steps.check_tag.outputs.tag_exists == 'false'
+        uses: ncipollo/release-action@v1 #https://github.com/ncipollo/release-action
+        with:
+          tag: ${{ steps.create-tag.outputs.tag }}
+          name: Release ${{ steps.create-tag.outputs.tag }}
+          bodyFile: changelog.md
+          token: ${{ secrets.GITHUB_TOKEN }}
           
 
 
