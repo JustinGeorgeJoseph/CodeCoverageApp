@@ -31,8 +31,7 @@ jobs:
         run: |
           changelog=$(cat changelog.md)
           #echo "::set-output name=changelog::$changelog"
-          echo "::set-output name=changelog::$(cat changelog.md)"
-
+          echo "::set-output name=changelog::$(cat changelog.md | tr '\n' '%')"
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
