@@ -41,13 +41,13 @@ jobs:
           git push origin $tag --verbose
 
       - name: Create GitHub Release
-        if: steps.check_tag.outputs.tag_exists == 'false'
         uses: ncipollo/release-action@v1 #https://github.com/ncipollo/release-action
         with:
           tag: ${{ steps.create-tag.outputs.tag }}
           name: Release ${{ steps.create-tag.outputs.tag }}
           bodyFile: changelog.md
           token: ${{ secrets.GITHUB_TOKEN }}
+          skipIfReleaseExists: true
           
 
 
