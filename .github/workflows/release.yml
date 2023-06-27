@@ -30,8 +30,8 @@ jobs:
         id: read-changelog
         run: |
           changelog=$(cat changelog.md)
-          #echo "::set-output name=changelog::$changelog"
-          echo "::set-output name=changelog::$(cat changelog.md | tr '\n' '%')"
+          echo "::set-output name=changelog::$changelog"
+     
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
@@ -40,9 +40,7 @@ jobs:
         with:
           tag_name: ${{ steps.create-tag.outputs.tag }}
           release_name: Release ${{ steps.create-tag.outputs.tag }}
-          body: |
-            ${{ steps.read-changelog.outputs.changelog | replace('%', '\n') }}
-          #body: ${{ steps.read-changelog.outputs.changelog }}
+          body: ${{ steps.read-changelog.outputs.changelog }}
           
 
 
