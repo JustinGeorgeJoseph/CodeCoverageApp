@@ -1,6 +1,6 @@
-name: Android Release
+name: Android Release main
 
-#on:
+on: workflow_dispatch
 #  push:
 #    branches:
 #      - main
