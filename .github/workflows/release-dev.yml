@@ -1,4 +1,4 @@
-name: Android Release
+name: Android Release dev
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
           versionName=$(grep -oP '(?<=versionName ").*(?=")' app/build.gradle)
           echo "tag=v${versionName}" >> $GITHUB_OUTPUT
           
-      - name: Check Tag Existence
+      - name: Check Tag Existence hmm
         id: check_tag
         run: |
           TAG_NAME=${{steps.create-tag.outputs.tag}}
