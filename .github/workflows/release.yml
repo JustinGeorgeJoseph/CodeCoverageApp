@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 name: Android Release dev 2
-=======
-name: Android Release main
->>>>>>> 303eae4 (main)
 
 on: workflow_dispatch
 #  push:
