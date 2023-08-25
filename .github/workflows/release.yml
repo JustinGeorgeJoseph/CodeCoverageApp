@@ -3,7 +3,7 @@ name: Android Release dev3
 on:
   push:
     branches:
-      - main
+      - dev3
 
 jobs:
   release:
